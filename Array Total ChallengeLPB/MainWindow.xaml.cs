@@ -26,55 +26,53 @@ namespace Array_Total_ChallengeLPB
         }
 
 
+        string[] tempArray = new string[5];
 
-
-
-
-
-
-        //make array
-
-        string[] grades;  
         
+        private void GetGrades()
+        { 
+            string[] grades = new string[5] {  textBox1.Text , textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text };
 
+            tempArray = grades;
 
+        }
 
-
-
-        private void figureButton_Click(object sender, RoutedEventArgs e)
+       public void Grades()
         {
-            //Instatiate Variables
+           
+            int grade1 = int.Parse(tempArray[0]);
+            int grade2 = int.Parse(tempArray[1]);
+            int grade3 = int.Parse(tempArray[2]);
+            int grade4 = int.Parse(tempArray[3]);
+            int grade5 = int.Parse(tempArray[4]);
 
-            
+            classAverage = (grade1 + grade2 + grade3 + grade4 + grade5) / 5;
 
-
-
-
-
-
-            //Get grades
-            grades = new string[5];
-
-            grades[0] = textBox1.Text;
-            grades[1] = textBox2.Text;
-            grades[2] = textBox3.Text;
-            grades[3] = textBox4.Text;
-            grades[4] = textBox5.Text;
-
-
-
-            //Figure Grades and average
-             int.Parse(grades[0]);
-            
-
-
-
-
-
+            classTotal = grade1 + grade2 + grade3 + grade4 + grade5;
 
 
 
 
         }
+
+        public int classAverage;
+        public int classTotal;
+
+        private void figureButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            GetGrades();
+
+            Grades();
+
+
+
+            resultLabel.Content = "The class total is " + classTotal + ". The class average is " + classAverage;
+
+
+
+        }
+
+        
     }
 }
